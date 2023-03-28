@@ -6,13 +6,12 @@ app.use(express.json());
 
 app.get('/api/cards/', async (req, res) => {
 
-    const cards = await db.collection('cards').findOne({ question: 'selector' });
+    const cards = await db.collection('cards').find().toArray();
     if (cards) {
         res.send(cards);
     } else {
         res.sendStatus(404);
     }
-    
 });
 
 connectToDb(() => {
