@@ -28,13 +28,14 @@ const CardsListPage = () => {
     return (
     <>
         <h1 className="cards-header">Flash Cards</h1>
-        <ul className="cards-list">
+        <div className="cards-list">
             <h2>{cardsData.length} Cards</h2>
-            <li className='card'>
-                <div className='card-question'>{cardsData[0].question}</div>
-                <div>{cardsData[0].answer}</div>
-            </li>
-        </ul>
+            {cardsData.map((card) => (         
+            <div key={card.question} className='card'>
+                <div className='card-question'>{card.question}</div>
+                <div>{card.answer}</div>
+            </div>))}
+        </div>
     </>
     );
 };
