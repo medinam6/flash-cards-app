@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-import './CardsListPage.css';
+import './Pages.css';
 
 const CardsListPage = () => {
 
@@ -36,6 +37,7 @@ const CardsListPage = () => {
                 <div>{card.answer}</div>
             </div>))}
         </div>
+        <Link to="add-flash-card">Add Flash Card</Link>
     </>
     );
 };

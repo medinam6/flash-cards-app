@@ -1,0 +1,45 @@
+.cards-header {
+    color: deeppink;
+}
+
+.card {
+    position: relative;
+    background-color: deeppink;
+    color: #fff;
+    margin: 20px 20%;
+    border-radius: 5px;
+    line-height: 3em;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+      rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    text-align: center;
+}
+
+
+.card-question {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+h2 {
+    opacity: .6;
+}
+
+.add-card {
+    display: flex;
+    flex-direction: column;
+    background-color: deeppink;
+    color: #fff;
+    margin: 20px 25%;
+    padding: 20px 40px;
+    border-radius: 5px;
+    line-height: 3em;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+      rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    text-align: center;
+}
+
+.submit-card {
+    margin: 0 35%;
+}
