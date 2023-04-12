@@ -2,13 +2,11 @@ import React, {useState} from 'react';
 
 import axios from 'axios';
 
-// import { useNavigate } from 'react-router-dom';
+import './components.css'
 
 const AddCard = () => {
     const [question, setQuestion] = useState('');
     const [answer, setAnswer] = useState('');
-
-    // const navigate = useNavigate();
 
     const submitCard = () => {
         if (question && answer) {
@@ -16,10 +14,6 @@ const AddCard = () => {
                 question: question,
                 answer: answer,
             })
-            .then((res) =>  {
-                alert('before navigate', res);
-                // navigate('/');
-        })
             .catch((error) => alert(error.reponse));
         }
     }

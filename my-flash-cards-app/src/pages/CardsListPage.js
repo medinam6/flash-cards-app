@@ -5,9 +5,8 @@ import axios from 'axios';
 // import { Link } from 'react-router-dom';
 
 import AddCard from '../components/AddCard';
-import Navbar from '../components/Navbar';
 
-import './Pages.css';
+import './pages.css';
 
 const CardsListPage = () => {
 
@@ -33,7 +32,6 @@ const CardsListPage = () => {
 
     return (
     <>
-        <Navbar />
         <AddCard />
         <h1 className="cards-header">Flash Cards</h1>
         <div className="cards-list">
