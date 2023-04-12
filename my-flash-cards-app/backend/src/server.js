@@ -15,6 +15,19 @@ app.get('/api/cards/', async (req, res) => {
     }
 });
 
+app.post('/api/add-card', async (req, res) => {
+    const { question } = req.body;
+    const { answer } = req.body;
+    
+    const response = await db.collection('cards').insertOne({
+        question: question,
+        answer: answer,
+        mastered: false
+    });
+
+    res.send(response);
+});
+
 connectToDb(() => {
     console.log('Successfully connected to database');
 
