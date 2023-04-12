@@ -13,7 +13,7 @@ function App() {
       <div>
         <Routes>
           <Route path='/' element={<CardsListPage />} />
-          <Route path='/add-flash-card'element={<AddCardPage />} />
+          {/* <Rout path='/study' element={<StudyCards />} /> */}
         </Routes>
       </div>
     </div>
