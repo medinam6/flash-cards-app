@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
+
 import axios from 'axios';
+
 // import { Link } from 'react-router-dom';
+
 import AddCard from '../components/AddCard';
+import Navbar from '../components/Navbar';
 
 import './Pages.css';
-import Navbar from '../components/Navbar';
 
 const CardsListPage = () => {
 
