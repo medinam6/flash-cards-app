@@ -4,41 +4,42 @@ import axios from 'axios';
 
 import './components.css'
 
-const AddCard = () => {
+const AddCard = ({setCardsData}) => {
     const [question, setQuestion] = useState('');
     const [answer, setAnswer] = useState('');
 
-    const submitCard = () => {
+    const submitCard = async () => {
         if (question && answer) {
-            axios.post('api/add-card', {
+            await axios.post('api/add-card', {
                 question: question,
                 answer: answer,
             })
-            .catch((error) => alert(error.reponse));
+            .then((res) =>  {
+                setCardsData(res.data);
+            })
+            .catch((error) => console.log(error));
         }
     }
 
     return (
-        <form className='add-card'>
+        <div className="add-card">
             <label>Enter Question</label>
-            <input 
-                type="text" 
-                name="question" 
-                onChange={(e) => setQuestion(e.target.value)}                     
-                required />
+            <textarea
+                className="card-input"
+                name="question"
+                onChange={(e) => setQuestion(e.target.value)}></textarea>
             <label>Enter Answer</label>
-            <input 
-                type="text" 
+            <textarea
+                className="card-input"
                 name="answer"
-                onChange={(e) => setAnswer(e.target.value)}
-                required />
+                onChange={(e) => setAnswer(e.target.value)}></textarea>
             <br />
             <button
                 className="submit-card"
                 onClick={submitCard}>
                 Add Card
             </button>
-        </form>
+        </div>
     )
 }
 

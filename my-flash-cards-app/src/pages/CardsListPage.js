@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 import axios from 'axios';
 
-// import { Link } from 'react-router-dom';
-
 import AddCard from '../components/AddCard';
 
 import './pages.css';
@@ -32,10 +30,10 @@ const CardsListPage = () => {
 
     return (
     <>
-        <AddCard />
-        <h1 className="cards-header">Flash Cards</h1>
+        <AddCard setCardsData={setCardsData}/>
         <div className="cards-list">
             <h2>{cardsData.length} Cards</h2>
+            
             {cardsData.map((card) => (         
             <div key={card.question} className='card'>
                 <div className='card-question'>{card.question}</div>

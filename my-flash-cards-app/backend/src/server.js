@@ -19,13 +19,19 @@ app.post('/api/add-card', async (req, res) => {
     const { question } = req.body;
     const { answer } = req.body;
     
-    const response = await db.collection('cards').insertOne({
+    await db.collection('cards').insertOne({
         question: question,
         answer: answer,
         mastered: false
     });
 
-    res.send(response);
+    const cards = await db.collection('cards').find().toArray();
+ 
+    if (cards) {
+        res.send(cards);
+    } else {
+        res.sendStatus(404);
+    }
 });
 
 connectToDb(() => {
