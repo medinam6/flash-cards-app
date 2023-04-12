@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import AddCard from '../components/AddCard';
 
 import './Pages.css';
+import Navbar from '../components/Navbar';
 
 const CardsListPage = () => {
 
@@ -28,6 +30,8 @@ const CardsListPage = () => {
 
     return (
     <>
+        <Navbar />
+        <AddCard />
         <h1 className="cards-header">Flash Cards</h1>
         <div className="cards-list">
             <h2>{cardsData.length} Cards</h2>
@@ -37,7 +41,6 @@ const CardsListPage = () => {
                 <div>{card.answer}</div>
             </div>))}
         </div>
-        <Link to="add-flash-card">Add Flash Card</Link>
     </>
     );
 };
