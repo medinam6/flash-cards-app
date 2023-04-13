@@ -8,31 +8,35 @@ const AddCard = ({setCardsData}) => {
     const [question, setQuestion] = useState('');
     const [answer, setAnswer] = useState('');
 
-    const submitCard = async () => {
+    const submitCard = () => {
         if (question && answer) {
-            await axios.post('api/add-card', {
+            axios.post('api/add-card', {
                 question: question,
                 answer: answer,
             })
             .then((res) =>  {
                 setCardsData(res.data);
+                setAnswer('');
+                setQuestion('');
             })
-            .catch((error) => console.log(error));
-        }
+            .catch((error) => console.log(error))
+        };
     }
 
     return (
         <div className="add-card">
             <label>Enter Question</label>
             <textarea
+                value={question}
                 className="card-input"
                 name="question"
-                onChange={(e) => setQuestion(e.target.value)}></textarea>
+                onChange={(e) => setQuestion(e.target.value)} />
             <label>Enter Answer</label>
             <textarea
+                value={answer}
                 className="card-input"
                 name="answer"
-                onChange={(e) => setAnswer(e.target.value)}></textarea>
+                onChange={(e) => setAnswer(e.target.value)} />
             <br />
             <button
                 className="submit-card"
