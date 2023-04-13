@@ -6,7 +6,7 @@ import AddCard from '../components/AddCard';
 
 import './pages.css';
 
-const CardsListPage = () => {
+const Home = () => {
 
     const [cardsData, setCardsData] = useState();
 
@@ -31,6 +31,7 @@ const CardsListPage = () => {
     return (
     <>
         <AddCard setCardsData={setCardsData}/>
+
         <div className="cards-list">
             <h2>{cardsData.length} Cards</h2>
             
@@ -38,10 +39,14 @@ const CardsListPage = () => {
             <div key={card.question} className='card'>
                 <div className='card-question'>{card.question}</div>
                 <div>{card.answer}</div>
+                <div className='card-buttons'>
+                    <button>Edit Card</button>
+                    <button>Delete Card</button>
+                </div>
             </div>))}
         </div>
     </>
     );
 };
 
-export default CardsListPage;
+export default Home;
