@@ -47,6 +47,29 @@ app.delete('/api/delete-card', async (req, res) => {
     }
 });
 
+app.put('/api/edit-card', async (req, res) => {
+    const  _id  = req.body._id;
+    const { answer } = req.body;
+    const { question } = req.body;
+
+    const response = await db.collection('cards').updateOne(
+        {_id: new ObjectId(_id)}, 
+        { $set: { 
+            answer: answer,
+            question: question,
+        }},
+    );
+
+    if (response) {
+        console.log(response);
+        const cardData = await db.collection('cards').find().toArray();
+        res.send(cardData);
+    } else {
+        res.sendStatus(404);
+    }
+});
+
+
 connectToDb(() => {
     console.log('Successfully connected to database');
 
