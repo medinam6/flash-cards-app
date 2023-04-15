@@ -1,6 +1,7 @@
 import express from 'express';
 import {db, connectToDb} from './db.js'
 import 'dotenv/config';
+import { ObjectId } from 'mongodb'
 
 const app = express();
 app.use(express.json());
@@ -29,6 +30,18 @@ app.post('/api/add-card', async (req, res) => {
  
     if (cards) {
         res.send(cards);
+    } else {
+        res.sendStatus(404);
+    }
+});
+
+app.delete('/api/delete-card', async (req, res) => {
+    const  _id  = req.body._id;
+    const response = await db.collection('cards').deleteOne({ _id: new ObjectId(_id) });
+
+    if (response && response.deletedCount > 0) {
+        const cardData = await db.collection('cards').find().toArray();
+        res.send(cardData);
     } else {
         res.sendStatus(404);
     }

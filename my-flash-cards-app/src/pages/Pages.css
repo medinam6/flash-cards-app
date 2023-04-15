@@ -22,3 +22,8 @@ h2 {
     opacity: .6;
     margin-top: 50px;
 }
+
+.card-buttons > button {
+    margin: 10px 15px;
+    font-family: "Arial Rounded MT Bold";
+}

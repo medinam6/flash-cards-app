@@ -24,6 +24,16 @@ const Home = () => {
         getCards();
     }, []);
 
+    const deleteCard = (_id) => {
+        axios.delete('/api/delete-card/', { data :{ _id: _id } })
+        .then((res) => {
+            setCardsData(res.data);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    };
+
     if (!cardsData) {
         return null;
     }
@@ -36,14 +46,14 @@ const Home = () => {
             <h2>{cardsData.length} Cards</h2>
             
             {cardsData.map((card) => (         
-            <div key={card.question} className='card'>
-                <div className='card-question'>{card.question}</div>
-                <div>{card.answer}</div>
-                <div className='card-buttons'>
-                    <button>Edit Card</button>
-                    <button>Delete Card</button>
-                </div>
-            </div>))}
+                <div key={card.question} className='card'>
+                    <div className='card-question'>{card.question}</div>
+                    <div>{card.answer}</div>
+                    <div className='card-buttons'>
+                        <button>Edit Card</button>
+                        <button onClick={() => deleteCard(card._id)}>Delete Card</button>
+                    </div>
+                </div>))}
         </div>
     </>
     );
