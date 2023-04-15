@@ -61,7 +61,6 @@ app.put('/api/edit-card', async (req, res) => {
     );
 
     if (response) {
-        console.log(response);
         const cardData = await db.collection('cards').find().toArray();
         res.send(cardData);
     } else {
