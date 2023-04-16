@@ -29,6 +29,13 @@ const Study = () => {
         }
     };
 
+    const getPrevCard = () => {
+        if (currentCardIndex > 0) {
+            setCurrentCardIndex(currentCardIndex - 1);
+            SetFrontCardSide(true);
+        }
+    }
+
     const flipCard = () => {
         SetFrontCardSide(!frontCardSide);
     }
@@ -42,14 +49,16 @@ const Study = () => {
             <div className='card-study'>
 
                 {frontCardSide
-                    ? <div>{cardsData[currentCardIndex].question}</div>
-                    : <div>{cardsData[currentCardIndex].answer}</div>}
+                    ? <div className='front-side'>{cardsData[currentCardIndex].question}</div>
+                    : <div className='back-side'>{cardsData[currentCardIndex].answer}</div>}
 
                 <button className='flip-card' onClick={flipCard}>Flip Card</button>
 
             </div>
-           {currentCardIndex + 1 < cardsData.length 
-            && <button onClick={getNextCard}>Next Card</button>}
+            <div className='card-buttons'>
+                <button onClick={getPrevCard}>Previous Card</button>
+                <button onClick={getNextCard}>Next Card</button>
+            </div>
         </>
     )
 };
