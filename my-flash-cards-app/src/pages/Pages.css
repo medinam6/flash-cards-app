@@ -28,21 +28,39 @@ h2 {
 }
 
 .card-study {
-    margin: 20%;
+    margin: 10% 20%;
     min-height: 300px;
     height: fit-content;
-    background-color: deeppink;
     color: #fff;
 }
 
 .card-study > div {
     padding: 15%;
+    min-height: 200px;
+}
+
+.front-side {
+    background-color: deeppink;
+    border: deeppink solid 1px;
+}
+
+.back-side {
+    background-color: #fff;
+    color: deeppink;
+    border: deeppink solid 1px;
 }
 
 .flip-card {
-    margin-bottom: 30px;
+    margin: 30px;
 }
 
 button {
     font-family: "Arial Rounded MT Bold";
+    cursor: pointer;
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
