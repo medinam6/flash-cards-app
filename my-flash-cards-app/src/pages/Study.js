@@ -46,15 +46,14 @@ const Study = () => {
 
     return (
         <>
-            <div className='card-study'>
-
+            <div className={`card-study ${frontCardSide ? "" : "flip"}`}>
                 {frontCardSide
                     ? <div className='front-side'>{cardsData[currentCardIndex].question}</div>
                     : <div className='back-side'>{cardsData[currentCardIndex].answer}</div>}
-
-                <button className='flip-card' onClick={flipCard}>Flip Card</button>
-
             </div>
+
+            <button className={`flip-card ${frontCardSide ? "" : "flip"}`} onClick={flipCard}>Flip Card</button>
+            
             <div className='card-buttons'>
                 <button onClick={getPrevCard}>Previous Card</button>
                 <button onClick={getNextCard}>Next Card</button>
