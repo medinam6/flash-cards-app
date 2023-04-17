@@ -75,10 +75,31 @@ h2 {
 button {
     font-family: "Arial Rounded MT Bold";
     cursor: pointer;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+        rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    color: deeppink;
 }
 
 .card-buttons {
     display: flex;
     justify-content: center;
     width: 100%;
+    position: fixed;
+    top: 60%;
+}
+
+.card-buttons-home {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.arrow-prev {
+    transform: rotateY(180deg);
+    height: 10px;
+}
+
+.arrow-next {
+    height: 10px;
 }

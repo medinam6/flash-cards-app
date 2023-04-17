@@ -51,12 +51,17 @@ const Study = () => {
                     ? <div className='front-side'>{cardsData[currentCardIndex].question}</div>
                     : <div className='back-side'>{cardsData[currentCardIndex].answer}</div>}
             </div>
-
-            <button className={`flip-card ${frontCardSide ? "" : "flip"}`} onClick={flipCard}>Flip Card</button>
             
             <div className='card-buttons'>
-                <button onClick={getPrevCard}>Previous Card</button>
-                <button onClick={getNextCard}>Next Card</button>
+                <button onClick={getPrevCard}>
+                    <img className="arrow-prev" src="./pink-arrow.png"/>
+                    Previous Card
+                </button>
+                <button className={`flip-card ${frontCardSide ? "" : "flip"}`} onClick={flipCard}>Flip Card</button>
+                <button onClick={getNextCard}>
+                    Next Card
+                    <img className="arrow-next" src="./pink-arrow.png"/>
+                </button>
             </div>
         </>
     )

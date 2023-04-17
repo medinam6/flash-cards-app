@@ -65,7 +65,7 @@ const Home = () => {
                 <div key={card.question} className='card'>
                     <div className='card-question'>{card.question}</div>
                     <div>{card.answer}</div>
-                    <div className='card-buttons'>
+                    <div className='card-buttons-home'>
                         <button onClick={() => editCard(card)}>Edit Card</button>
                         <button onClick={() => deleteCard(card._id)}>Delete Card</button>
                     </div>
