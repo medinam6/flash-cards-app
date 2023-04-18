@@ -1,13 +1,25 @@
+import path from 'path';
 import express from 'express';
-import {db, connectToDb} from './db.js'
 import 'dotenv/config';
-import { ObjectId } from 'mongodb'
+import {db, connectToDb} from './db.js'
+
+import { ObjectId } from 'mongodb';
+
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
+
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '../build')));
+
+app.get(/^(?!\/api).+/, (req, res) => {
+    console.log('dir name', __dirname);
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
 app.get('/api/cards/', async (req, res) => {
-
     const cards = await db.collection('cards').find().toArray();
     if (cards) {
         res.send(cards);
@@ -68,11 +80,12 @@ app.put('/api/edit-card', async (req, res) => {
     }
 });
 
+const port = process.env.PORT || 8000;
 
 connectToDb(() => {
     console.log('Successfully connected to database');
 
-    app.listen(8000, () => {
-    console.log('Server is listening on port 8000');
+    app.listen(port, () => {
+        console.log(`Server is listening on port ${port}`);
     });
 });
