@@ -7,9 +7,9 @@ A web-based application that provides users with a platform to manage flash card
 
 ### List cards
 
-Endpoint: '/api/cards' 
-Method: GET 
-Description: Retrieves the list of cards.
+Endpoint: '/api/cards'  <br />
+Method: GET <br />
+Description: Retrieves the list of cards. <br />
 
 Response Format:
 ```
@@ -33,9 +33,9 @@ Note: The "mastered" field will be used after the implementation of study button
 
 ### Add card
 
-Endpoint: '/api/add-card' 
-Method: POST 
-Description: Adds a new card to the list. 
+Endpoint: '/api/add-card' <br />
+Method: POST <br />
+Description: Adds a new card to the list. <br />
 
 Request Format:
 ```
@@ -62,9 +62,9 @@ Response Format:
 
 ### Update card
 
-Endpoint: '/api/edit-card' 
-Method: PUT 
-Description: Updates the details of a specific card. 
+Endpoint: '/api/edit-card' <br />
+Method: PUT <br />
+Description: Updates the details of a specific card. <br />
 
 Request Format:
 ```
@@ -88,9 +88,9 @@ Response Format:
 
 ### Delete card
 
-Endpoint: '/api/delete-card' 
-Method: DELETE 
-Description: Deletes a specific card.
+Endpoint: '/api/delete-card' <br />
+Method: DELETE <br />
+Description: Deletes a specific card. <br />
 
 Request Format:
 ```
